@@ -19,11 +19,11 @@ public class Function
     public string FunctionHandler(object input, ILambdaContext context)
     {
         dynamic json = JsonConvert.DeserializeObject<dynamic>(input.ToString());
-        var client = new HttpClient();
         
         string payload = $"{{'text':'Issue Created: {json.issue.html_url}'}}";
 
-        var webRequest = new HttpRequestMessage(HttpMethod.Post, "https://hooks.slack.com/services/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")
+        var client = new HttpClient();
+        var webRequest = new HttpRequestMessage(HttpMethod.Post, "{do not check in this URL}")
         {
             Content = new StringContent(payload, Encoding.UTF8, "application/json")
         };
